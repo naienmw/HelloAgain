@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     public Integer temp = 0;
+    public Integer temp2 = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,27 +21,38 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
+
+
+        final TextView firstTextView = (TextView) findViewById(R.id.textView);
+        final TextView firstText = (TextView) findViewById(R.id.firstText);
+
+        Button firstButton = (Button) findViewById(R.id.firstButton);
+        Button secondButton = (Button) findViewById(R.id.button);
+        Button clearButton = (Button) findViewById(R.id.buttonClear);
+
+        firstButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                temp = temp + 1;
+                firstTextView.setText(Integer.toString(temp));
             }
         });
 
-        final TextView firstTextView = (TextView) findViewById(R.id.textView);
+        secondButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                temp2 = temp2 + 1;
+                firstText.setText("You Clicked " + Integer.toString(temp2) + " times");
+            }
+        });
 
-        Button firstButton = (Button) findViewById(R.id.firstButton);
-
-        for ( int i = 1;i< 10;i++) {
-            firstButton.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View view) {
-                    temp = temp + 1;
-                    firstTextView.setText("You Clicked " + Integer.toString(temp) + " times");
-                }
-            });
-        }}
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                temp = 0;
+                temp2 = 0;
+                firstText.setText("Clicks Resettet");
+                firstTextView.setText("Clicks Resettet");
+            }
+        });
+    }
 
 
     @Override
