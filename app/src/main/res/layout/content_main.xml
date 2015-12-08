@@ -50,7 +50,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="@dimen/button_bottom_margin"
         android:layout_marginLeft="@dimen/button_bottom_margin"
-        android:foreground="@drawable/button_bg"
+        android:foreground="@layout/button_bg"
         android:backgroundTint="#00ffffff"
         android:background="#00ffffff" />
 
